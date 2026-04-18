@@ -9,5 +9,5 @@ It loads `OPENAI_API_KEY` from `.env`, creates private solutions, turns them int
 ```bash
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/uvicorn app.main:app --reload --host 127.0.0.1 --port 8010
+python app.py
 ```

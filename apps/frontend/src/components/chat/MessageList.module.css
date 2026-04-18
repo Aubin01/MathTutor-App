@@ -1,0 +1,83 @@
+.listContainer {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  /* Subtle dot-grid background — evokes graph paper */
+  background-image: radial-gradient(circle, var(--chat-input-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 12px 12px;
+}
+
+.list {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--chat-scrollbar) transparent;
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--chat-scrollbar);
+  border-radius: 3px;
+}
+
+/* Scroll-to-bottom button */
+.scrollBtn {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--container-color);
+  border: 1px solid var(--chat-input-border);
+  color: var(--primary-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s;
+  z-index: 10;
+  animation: fadeInBtn 0.2s ease;
+  padding: 0;
+}
+
+.scrollBtn:hover {
+  background: var(--button-color);
+  color: #fff;
+  border-color: var(--button-color);
+  box-shadow: 0 4px 16px var(--glow-accent);
+}
+
+@keyframes fadeInBtn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .list {
+    padding: 16px 12px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .list {
+    padding: 12px 8px;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,42 @@
+.panel {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--chat-scrollbar) transparent;
+}
+
+.panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel::-webkit-scrollbar-thumb {
+  background-color: var(--chat-scrollbar);
+  border-radius: 3px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--chat-library-toggle);
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.empty {
+  color: var(--primary-alt);
+  font-size: 13px;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

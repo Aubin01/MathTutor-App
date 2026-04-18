@@ -1,0 +1,208 @@
+/*
+ * Page layout for the tutor workspace.
+ */
+
+.page {
+  display: flex;
+  height: 100%;
+  background-color: var(--chat-bg);
+  color: var(--primary-text);
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+/* Sidebar wrapper — on desktop flows normally, on mobile becomes overlay */
+.sidebarWrapper {
+  display: contents;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hamburger menu button — hidden on desktop, visible on mobile */
+.hamburger {
+  display: none;
+}
+
+/* Mobile top bar — hidden on desktop */
+.mobileTopBar {
+  display: none;
+}
+
+/* Mobile backdrop overlay */
+.backdrop {
+  display: none;
+}
+
+.librarySidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--chat-library-bg);
+  transition: width 0.3s ease, background-color 0.3s ease;
+  width: 48px;
+  overflow: hidden;
+  border-left: 1px solid var(--chat-library-border);
+}
+
+.librarySidebar.open {
+  width: 300px;
+}
+
+.libraryToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--chat-library-border);
+  color: var(--chat-library-toggle);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  min-height: 48px;
+  transition: background-color 0.2s;
+  font-family: inherit;
+}
+
+.librarySidebar.open .libraryToggle {
+  justify-content: flex-start;
+  padding: 14px 16px;
+}
+
+.libraryToggle:hover {
+  background-color: var(--glow-accent);
+}
+
+.toggleIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.toggleText {
+  flex: 1;
+  text-align: left;
+}
+
+.closeIcon {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+.closeIcon:hover {
+  opacity: 1;
+}
+
+/* Mobile: sidebar becomes overlay drawer */
+@media (max-width: 768px) {
+  .sidebarWrapper {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sidebarWrapperOpen {
+    transform: translateX(0);
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 199;
+    animation: fadeIn 0.2s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .mobileTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    flex-shrink: 0;
+    background: var(--chat-bg);
+    z-index: 10;
+  }
+
+  .topBarBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    color: var(--primary-text);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    padding: 0;
+  }
+
+  .topBarBtn:hover {
+    background: var(--chat-mode-bg);
+    color: var(--button-color);
+  }
+
+  .topBarCenter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .topBarTitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--primary-text);
+    letter-spacing: 0;
+  }
+
+  .topBarRight {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .librarySidebar {
+    display: none;
+  }
+
+  .librarySidebar.open {
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: min(280px, 80vw);
+    z-index: 200;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.2);
+  }
+}

@@ -1,0 +1,38 @@
+.pills {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pill {
+  padding: 4px 12px;
+  background: none;
+  border: 1px solid var(--chat-input-border);
+  border-radius: 8px;
+  color: var(--primary-text);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.pill:hover {
+  border-color: var(--button-color);
+  color: var(--primary-text);
+}
+
+.pill.active {
+  background: var(--button-color);
+  border-color: var(--button-color);
+  color: #fff;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .pill {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+}

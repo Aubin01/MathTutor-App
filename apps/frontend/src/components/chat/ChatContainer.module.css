@@ -1,0 +1,238 @@
+/*
+ * Layout and controls for the tutor workspace.
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.inputCard {
+  flex-shrink: 0;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto 20px;
+  background-color: var(--chat-input-bg);
+  border-radius: 20px;
+  border: 1px solid var(--chat-input-border);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  padding: 4px 8px 4px;
+}
+
+.inputLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--button-color);
+  padding: 8px 14px 0;
+}
+
+.inputArea {
+  display: flex;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px 8px;
+  flex-wrap: wrap;
+}
+
+.pillGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--chat-input-border);
+  border-radius: 22px;
+  padding: 4px 10px 4px 12px;
+  background: rgba(88, 166, 255, 0.04);
+}
+
+.pillLabel {
+  color: var(--button-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.pillToggle {
+  display: flex;
+  align-items: center;
+  background: var(--chat-mode-bg);
+  border-radius: 16px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  min-width: 32px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 16px;
+  background: transparent;
+  color: var(--chat-hint-text);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.pill:hover {
+  color: var(--primary-text);
+  background: rgba(88, 166, 255, 0.08);
+}
+
+.pillActive {
+  background: var(--button-color);
+  color: #0d1117;
+}
+
+.pillActive:hover {
+  background: var(--button-active-color);
+  color: #0d1117;
+}
+
+.actionButton,
+.primaryButton,
+.exportBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  border: none;
+  border-radius: 16px;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0 14px;
+}
+
+.actionButton {
+  background: var(--chat-mode-bg);
+  color: var(--primary-text);
+}
+
+.primaryButton {
+  background: var(--chat-send-bg);
+  color: #0d1117;
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.exportBtn {
+  width: 32px;
+  padding: 0;
+  color: var(--chat-hint-text);
+  background: transparent;
+  margin-left: auto;
+}
+
+.actionButton:hover,
+.exportBtn:hover {
+  background: var(--chat-card-hover-bg);
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--chat-send-hover);
+}
+
+.progressBar {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 6px 16px 10px;
+}
+
+.progressInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.progressLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--button-color);
+}
+
+.progressCount {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--chat-hint-text);
+}
+
+.progressTrack {
+  display: flex;
+  gap: 4px;
+}
+
+.progressStep {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--chat-mode-bg);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.progressStepDone {
+  background: var(--button-color);
+}
+
+.progressStepNext {
+  background: var(--chat-mode-bg);
+  box-shadow: 0 0 0 2px var(--button-color);
+  animation: stepPulse 2s ease-in-out infinite;
+}
+
+@keyframes stepPulse {
+  0%, 100% { box-shadow: 0 0 0 2px var(--button-color); }
+  50% { box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.3); }
+}
+
+.error {
+  max-width: 760px;
+  width: calc(100% - 24px);
+  margin: 0 auto 8px;
+  color: #b91c1c;
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .inputCard {
+    margin: 0 8px 10px;
+    max-width: none;
+    width: auto;
+    padding: 6px 10px;
+  }
+
+  .sessionBar {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+}

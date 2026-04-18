@@ -1,0 +1,44 @@
+/*
+ * Styles for the simple text input.
+ */
+
+.inputContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.textarea {
+  width: 100%;
+  color: var(--primary-text);
+  background-color: transparent;
+  min-height: 44px;
+  max-height: 160px;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+}
+
+.textarea::placeholder {
+  color: var(--chat-placeholder);
+}
+
+@media (max-width: 768px) {
+  .textarea {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .textarea {
+    min-height: 38px;
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}

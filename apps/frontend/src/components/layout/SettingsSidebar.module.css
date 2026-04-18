@@ -1,0 +1,460 @@
+/*
+ * Sidebar styles for tutor session history and settings.
+ */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--container-color);
+  border-right: 1px solid var(--chat-input-border);
+  width: 260px;
+  flex-shrink: 0;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: 48px;
+}
+
+/* Shared icon button style (collapsed state) */
+.iconButton,
+.collapseToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: var(--primary-alt);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.iconButton:hover,
+.collapseToggle:hover {
+  background: var(--chat-mode-bg);
+  color: var(--button-color);
+}
+
+.collapsedActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0.75rem 0;
+}
+
+.collapsedLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.logoDefault,
+.logoHover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s;
+}
+
+.logoHover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  color: var(--primary-alt);
+}
+
+.collapsedLogo:hover .logoDefault {
+  opacity: 0;
+}
+
+.collapsedLogo:hover .logoHover {
+  opacity: 1;
+  color: var(--button-color);
+}
+
+.collapsedFooter {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--chat-input-border);
+}
+
+/* Brand header */
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.75rem 0.85rem 1rem;
+  border-bottom: 1px solid var(--chat-input-border);
+  flex-shrink: 0;
+}
+
+.brandLogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brandTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.brandHighlight {
+  color: var(--primary-accent);
+}
+
+/* Actions row for new sessions and search. */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.5rem;
+  flex-shrink: 0;
+}
+
+.newChatButtonFull,
+.searchButtonFull {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: var(--primary-text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.newChatButtonFull:hover,
+.searchButtonFull:hover {
+  background: var(--chat-mode-bg);
+}
+
+.newChatButtonFull svg,
+.searchButtonFull svg {
+  color: var(--button-color);
+  flex-shrink: 0;
+}
+
+/* Chat history section (scrollable, fills remaining space) */
+.historySection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.historySection:hover {
+  scrollbar-width: thin;
+  scrollbar-color: var(--chat-scrollbar) transparent;
+}
+
+.historySection::-webkit-scrollbar {
+  width: 0;
+}
+
+.historySection:hover::-webkit-scrollbar {
+  width: 6px;
+}
+
+.historySection::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.historySection::-webkit-scrollbar-thumb {
+  background-color: var(--chat-scrollbar);
+  border-radius: 3px;
+}
+
+.historyList {
+  padding: 0.25rem 0.5rem 0.5rem;
+}
+
+.dateGroup {
+  margin-bottom: 0.25rem;
+}
+
+.dateLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--chat-hint-text);
+  padding: 0.5rem 0.5rem 0.2rem;
+  letter-spacing: 0;
+  user-select: none;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  transition: background 0.15s;
+  position: relative;
+}
+
+.historyItem:hover {
+  background: var(--chat-mode-bg);
+}
+
+.historyButton {
+  flex: 1;
+  display: block;
+  padding: 0.5rem 0.5rem;
+  background: none;
+  border: none;
+  color: var(--primary-text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--chat-hint-text);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.historyItem:hover .deleteButton {
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  color: #e74c3c;
+}
+
+/* KaTeX-rendered math titles inside history items */
+.mathTitle {
+  display: inline;
+  pointer-events: none;
+}
+
+.mathTitle :global(.katex) {
+  font-size: 1em;
+  white-space: nowrap;
+}
+
+.historyItemActive {
+  background: var(--chat-mode-bg);
+}
+
+.historyItemActive .historyButton {
+  color: var(--button-color);
+  font-weight: 600;
+}
+
+.emptyHistory {
+  font-size: 0.8rem;
+  color: var(--chat-hint-text);
+  text-align: center;
+  padding: 1rem 0.5rem;
+  margin: 0;
+}
+
+/* Search bar */
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.35rem 0.5rem;
+  margin: 0 0.5rem 0.25rem;
+  background: var(--chat-mode-bg);
+  border-radius: 8px;
+  border: 1px solid var(--chat-input-border);
+}
+
+.searchIcon {
+  color: var(--chat-hint-text);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--primary-text);
+  font-family: inherit;
+  font-size: 0.82rem;
+  min-width: 0;
+}
+
+.searchInput::placeholder {
+  color: var(--chat-placeholder);
+}
+
+.searchClear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--chat-hint-text);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+
+.searchClear:hover {
+  color: var(--primary-text);
+}
+
+/* Settings footer (pinned to bottom) */
+.settingsFooter {
+  flex-shrink: 0;
+  border-top: 1px solid var(--chat-input-border);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  color: var(--primary-text);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+}
+
+.sectionHeader:hover {
+  background: var(--chat-mode-bg);
+}
+
+.sectionIcon {
+  color: var(--button-color);
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  flex: 1;
+  text-align: left;
+}
+
+.chevron {
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.sectionContent {
+  padding: 0.25rem 0.75rem 0.75rem;
+}
+
+/* Settings row */
+.settingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.25rem;
+}
+
+.settingLabel {
+  font-size: 0.9rem;
+  color: var(--primary-text);
+  font-weight: 400;
+}
+
+.pillSwitch {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+}
+
+.track {
+  width: 40px;
+  height: 22px;
+  background: var(--primary-alt);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.on {
+  background: var(--button-color);
+}
+
+.thumb {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thumbOn {
+  left: 20px;
+  background: var(--primary-light);
+}
+
+.pillSwitch:focus .track {
+  box-shadow: 0 0 0 2px var(--primary-accent);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 240px;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar.collapsed {
+    width: 240px;
+  }
+}

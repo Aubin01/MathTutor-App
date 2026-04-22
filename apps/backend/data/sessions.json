@@ -960,5 +960,50 @@
         "created_at": "2026-04-18T05:04:00.388227+00:00"
       }
     ]
+  },
+  "809bf3d1-0815-4c4f-bd1c-da5070958f86": {
+    "id": "809bf3d1-0815-4c4f-bd1c-da5070958f86",
+    "title": "Factor this expression: $x^2 + 5x + 6$",
+    "problem": "Factor this expression: $x^2 + 5x + 6$",
+    "strictness": "strict",
+    "max_hints": 5,
+    "private_solution": "To factor \\(x^2+5x+6\\), find two numbers that multiply to \\(6\\) and add to \\(5\\): \\(2\\) and \\(3\\).  \nSo,\n\\[\nx^2+5x+6=(x+2)(x+3).\n\\]\n\\[\n\\boxed{(x+2)(x+3)}\n\\]",
+    "final_answer": "(x+2)(x+3)",
+    "hints": [
+      "Note this is a quadratic and identify the coefficients: $a=1$, $b=5$, $c=6$.",
+      "Look for two integers whose product is $c=6$ and whose sum is $b=5$.",
+      "List the integer factor pairs of $6$: $(1,6)$ and $(2,3)$, and compute each pair's sum.",
+      "Pick the pair from step 3 whose sum equals $5$.",
+      "Use those two numbers $m$ and $n$ to write the factorization in the form $$x^2+5x+6=(x+m)(x+n)$$ (replace $m,n$ with the pair you chose)."
+    ],
+    "revealed_count": 3,
+    "status": "active",
+    "created_at": "2026-04-18T20:31:03.357353+00:00",
+    "messages": [
+      {
+        "id": "82aae084-1463-45fe-b5f2-7c70e3a2461c",
+        "role": "student",
+        "content": "Factor this expression: $x^2 + 5x + 6$",
+        "created_at": "2026-04-18T20:31:03.357375+00:00"
+      },
+      {
+        "id": "e9a05b1a-5d31-4c89-b20d-f9e6d9b0c19f",
+        "role": "tutor",
+        "content": "Hint 1 of 5\n\nNote this is a quadratic and identify the coefficients: $a=1$, $b=5$, $c=6$.",
+        "created_at": "2026-04-18T20:31:03.357382+00:00"
+      },
+      {
+        "id": "76eb4eea-d9a5-4f93-b3fa-3bf1979d49b1",
+        "role": "tutor",
+        "content": "Hint 2 of 5\n\nLook for two integers whose product is $c=6$ and whose sum is $b=5$.",
+        "created_at": "2026-04-18T20:31:09.570758+00:00"
+      },
+      {
+        "id": "709dcc29-5b41-4410-8fc1-17458674df77",
+        "role": "tutor",
+        "content": "Hint 3 of 5\n\nList the integer factor pairs of $6$: $(1,6)$ and $(2,3)$, and compute each pair's sum.",
+        "created_at": "2026-04-18T20:31:13.708104+00:00"
+      }
+    ]
   }
 }

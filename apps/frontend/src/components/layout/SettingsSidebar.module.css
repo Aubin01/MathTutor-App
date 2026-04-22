@@ -262,7 +262,7 @@
 }
 
 .deleteButton:hover {
-  color: #e74c3c;
+  color: var(--danger-text);
 }
 
 /* KaTeX-rendered math titles inside history items */
@@ -433,9 +433,9 @@
   top: 2px;
   width: 18px;
   height: 18px;
-  background: #fff;
+  background: var(--primary-light);
   border-radius: 50%;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.16);
   transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -451,7 +451,7 @@
 @media (max-width: 768px) {
   .sidebar {
     width: 240px;
-    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow);
   }
 
   .sidebar.collapsed {

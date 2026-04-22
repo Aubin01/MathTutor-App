@@ -2,77 +2,90 @@
  * Global theme and base styles for the tutor frontend.
  */
 
-:root {
-  /* Base theme values — deep navy educational palette */
-  --primary-dark: #0d1117;
-  --primary-light: #f0f4f8;
-  --primary-alt: #8899aa;
-  --primary-accent: #58a6ff;
-  --accent-alt: #f78166;
-  --glow-accent: rgba(88, 166, 255, 0.10);
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Light mode — paper-like workspace with clear, calm contrast */
+  --primary-dark: #0f172a;
+  --primary-light: #ffffff;
+  --primary-alt: #64748b;
+  --primary-accent: #2563eb;
+  --accent-alt: #c2410c;
+  --glow-accent: rgba(37, 99, 235, 0.12);
   --border-radius: 12px;
-  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --box-shadow: 0 16px 40px rgba(15, 23, 42, 0.10);
+  --soft-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
 
-  --container-color: #161b22;
-  --background-color: #0d1117;
-  --button-color: #58a6ff;
-  --button-active-color: #79b8ff;
-  --primary-text: #e6edf3;
-  --check-green: #3fb950;
+  --container-color: #ffffff;
+  --background-color: #f6f8fb;
+  --button-color: #2563eb;
+  --button-active-color: #1d4ed8;
+  --button-text: #ffffff;
+  --primary-text: #172033;
+  --check-green: #15803d;
 
-  --chat-bg: #0d1117;
-  --chat-sidebar-bg: #161b22;
-  --chat-input-bg: #161b22;
-  --chat-input-border: #30363d;
-  --chat-user-bubble: #1a3a5c;
-  --chat-user-text: #e6edf3;
-  --chat-assistant-bubble: #1c2128;
-  --chat-assistant-text: #e6edf3;
-  --chat-header-border: #30363d;
-  --chat-scrollbar: #484f58;
-  --chat-hint-text: #8b949e;
-  --chat-placeholder: #6e7681;
-  --chat-send-bg: #58a6ff;
-  --chat-send-hover: #79b8ff;
-  --chat-mode-bg: #1c2128;
-  --chat-mode-active: #58a6ff;
-  --chat-mode-text: #c9d1d9;
+  --chat-bg: #f6f8fb;
+  --chat-sidebar-bg: #ffffff;
+  --chat-input-bg: #ffffff;
+  --chat-input-border: #d8e0ea;
+  --chat-user-bubble: #dbeafe;
+  --chat-user-text: #172033;
+  --chat-assistant-bubble: #ffffff;
+  --chat-assistant-text: #172033;
+  --chat-header-border: #d8e0ea;
+  --chat-scrollbar: #94a3b8;
+  --chat-hint-text: #64748b;
+  --chat-placeholder: #94a3b8;
+  --chat-send-bg: #2563eb;
+  --chat-send-hover: #1d4ed8;
+  --chat-mode-bg: #eef2f7;
+  --chat-mode-active: #2563eb;
+  --chat-mode-text: #475569;
   --chat-mode-active-text: #ffffff;
-  --chat-toggle-border: #30363d;
-  --chat-toggle-on-bg: #58a6ff;
+  --chat-toggle-border: #d8e0ea;
+  --chat-toggle-on-bg: #2563eb;
   --chat-toggle-on-text: #ffffff;
-  --chat-toggle-on-border: #58a6ff;
-  --chat-library-bg: #161b22;
-  --chat-library-border: #30363d;
-  --chat-library-toggle: #58a6ff;
-  --chat-card-bg: #161b22;
-  --chat-card-hover-bg: #1c2128;
-  --chat-card-border-hover: #58a6ff;
-  --chat-card-title: #e6edf3;
-  --chat-card-excerpt: #8b949e;
-  --chat-card-page: #58a6ff;
-  --chat-title-color: #58a6ff;
+  --chat-toggle-on-border: #2563eb;
+  --chat-library-bg: #ffffff;
+  --chat-library-border: #d8e0ea;
+  --chat-library-toggle: #2563eb;
+  --chat-card-bg: #ffffff;
+  --chat-card-hover-bg: #f1f5f9;
+  --chat-card-border-hover: #2563eb;
+  --chat-card-title: #172033;
+  --chat-card-excerpt: #64748b;
+  --chat-card-page: #2563eb;
+  --chat-title-color: #2563eb;
+  --chat-grid-dot: rgba(148, 163, 184, 0.34);
+  --math-watermark-color: rgba(37, 99, 235, 0.10);
+  --chat-backdrop: rgba(15, 23, 42, 0.32);
+  --danger-text: #b91c1c;
+  --danger-bg: rgba(220, 38, 38, 0.08);
+  --danger-border: rgba(220, 38, 38, 0.22);
 
   /* MathLive color styles */
-  --keyboard-toolbar-text: var(--primary-light);
+  --keyboard-toolbar-text: var(--primary-text);
   --keyboard-border: var(--primary-accent);
   --keyboard-background: var(--container-color);
   --keyboard-accent-color: var(--primary-accent);
-  --keycap-background: #1c2128;
-  --keycap-secondary-background: var(--primary-light);
-  --keycap-text: var(--primary-light);
-  --keycap-secondary-text: var(--primary-dark);
-  --keycap-background-hover: var(--primary-light);
-  --keycap-text-hover: var(--primary-dark);
-  --keycap-secondary-text-hover: var(--primary-light);
-  --caret-color: var(--primary-light);
+  --keycap-background: #eef2f7;
+  --keycap-secondary-background: var(--primary-accent);
+  --keycap-text: var(--primary-text);
+  --keycap-secondary-text: var(--button-text);
+  --keycap-background-hover: #dbeafe;
+  --keycap-text-hover: var(--primary-text);
+  --keycap-secondary-text-hover: var(--button-text);
+  --caret-color: var(--primary-text);
   --text-font-family: 'Inter', sans-serif;
   --contains-highlight-background-color: transparent;
   --highlight-text: transparent;
 }
 
 :root[data-theme="dark"] {
-  /* Dark mode is actually the default now — these are subtle enhancements */
+  color-scheme: dark;
+
+  /* Dark mode — compact, low-glare tutoring workspace */
   --primary-dark: #010409;
   --primary-light: #f0f4f8;
   --primary-alt: #7d8590;
@@ -83,8 +96,10 @@
   --background-color: #010409;
   --button-color: #58a6ff;
   --button-active-color: #79b8ff;
+  --button-text: #0d1117;
   --primary-text: #e6edf3;
   --box-shadow: none;
+  --soft-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
 
   --chat-bg: #010409;
   --chat-sidebar-bg: #0d1117;
@@ -118,6 +133,12 @@
   --chat-card-excerpt: #c9d1d9;
   --chat-card-page: #58a6ff;
   --chat-title-color: #58a6ff;
+  --chat-grid-dot: #21262d;
+  --math-watermark-color: rgba(88, 166, 255, 0.14);
+  --chat-backdrop: rgba(0, 0, 0, 0.4);
+  --danger-text: #fca5a5;
+  --danger-bg: rgba(248, 113, 113, 0.12);
+  --danger-border: rgba(248, 113, 113, 0.35);
 
   /* MathLive dark styles */
   --keyboard-toolbar-text: var(--primary-light);
@@ -210,7 +231,7 @@ body {
 /* Selection highlight */
 ::selection {
   background: var(--primary-accent);
-  color: var(--primary-light);
+  color: var(--button-text);
 }
 
 /* Focus visible for keyboard navigation */

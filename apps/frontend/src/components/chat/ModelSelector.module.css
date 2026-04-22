@@ -26,7 +26,7 @@
 .pill.active {
   background: var(--button-color);
   border-color: var(--button-color);
-  color: #fff;
+  color: var(--button-text);
   font-weight: 500;
 }
 

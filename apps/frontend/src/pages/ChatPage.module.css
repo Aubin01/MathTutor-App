@@ -125,7 +125,7 @@
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--chat-backdrop);
     z-index: 199;
     animation: fadeIn 0.2s ease;
   }
@@ -203,6 +203,6 @@
     bottom: 0;
     width: min(280px, 80vw);
     z-index: 200;
-    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow);
   }
 }

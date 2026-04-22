@@ -18,7 +18,7 @@
   background-color: var(--chat-input-bg);
   border-radius: 20px;
   border: 1px solid var(--chat-input-border);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--soft-shadow);
   padding: 4px 8px 4px;
 }
 
@@ -52,7 +52,7 @@
   border: 1px solid var(--chat-input-border);
   border-radius: 22px;
   padding: 4px 10px 4px 12px;
-  background: rgba(88, 166, 255, 0.04);
+  background: var(--glow-accent);
 }
 
 .pillLabel {
@@ -93,17 +93,17 @@
 
 .pill:hover {
   color: var(--primary-text);
-  background: rgba(88, 166, 255, 0.08);
+  background: var(--glow-accent);
 }
 
 .pillActive {
   background: var(--button-color);
-  color: #0d1117;
+  color: var(--button-text);
 }
 
 .pillActive:hover {
   background: var(--button-active-color);
-  color: #0d1117;
+  color: var(--button-text);
 }
 
 .actionButton,
@@ -130,7 +130,7 @@
 
 .primaryButton {
   background: var(--chat-send-bg);
-  color: #0d1117;
+  color: var(--button-text);
 }
 
 .primaryButton:disabled {
@@ -208,16 +208,16 @@
 
 @keyframes stepPulse {
   0%, 100% { box-shadow: 0 0 0 2px var(--button-color); }
-  50% { box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.3); }
+  50% { box-shadow: 0 0 0 2px var(--glow-accent); }
 }
 
 .error {
   max-width: 760px;
   width: calc(100% - 24px);
   margin: 0 auto 8px;
-  color: #b91c1c;
-  background: rgba(248, 113, 113, 0.12);
-  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: var(--danger-text);
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
   border-radius: 8px;
   padding: 8px 10px;
   font-size: 0.9rem;

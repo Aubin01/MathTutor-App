@@ -9,34 +9,39 @@ import styles from './WelcomeScreen.module.css';
 
 interface SuggestedPrompt {
   label: string;
-  latex: string;
+  previewLatex: string;
+  question: string;
   icon: React.ReactNode;
   subject: string;
 }
 
 const suggestedPrompts: SuggestedPrompt[] = [
   {
-    subject: 'Algebra',
-    label: 'Factor this expression',
-    latex: 'x^2 + 5x + 6',
+    subject: 'Calculus',
+    label: 'Differentiate a variable-base power',
+    previewLatex: 'f(x)=x^{\\sin x},\\quad f\'(x)=x^{\\sin x}\\left(\\cos x\\ln x+\\frac{\\sin x}{x}\\right)',
+    question: 'Differentiate $f(x)=x^{\\sin x}$ for $x>0$ using logarithmic differentiation. Explain each step and simplify the derivative.',
     icon: <Calculator size={18} />,
   },
   {
     subject: 'Calculus',
-    label: 'Work through a derivative',
-    latex: '\\frac{d}{dx}\\left(x^2\\sin x\\right)',
+    label: 'Classify a power series at every endpoint',
+    previewLatex: '\\sum_{n=1}^{\\infty}\\frac{n(x-2)^n}{3^n\\sqrt{n+1}}',
+    question: 'Find the interval of convergence for the power series $\\sum_{n=1}^{\\infty}\\frac{n(x-2)^n}{3^n\\sqrt{n+1}}$. Check both endpoints carefully.',
     icon: <TrendingUp size={18} />,
   },
   {
-    subject: 'Algebra',
-    label: 'Solve this equation',
-    latex: '2x + 7 = 19',
+    subject: 'Discrete Math',
+    label: 'Prove non-planarity using graph constraints',
+    previewLatex: 'K_{3,3}:\\quad v=6,\\ e=9,\\ g=4',
+    question: 'Prove that $K_{3,3}$ is non-planar using Euler formula and the edge bound for bipartite planar graphs.',
     icon: <BookOpen size={18} />,
   },
   {
-    subject: 'Geometry',
-    label: 'Reason about a triangle',
-    latex: 'a^2 + b^2 = c^2',
+    subject: 'Calculus',
+    label: 'Evaluate an improper integral rigorously',
+    previewLatex: '\\int_{0}^{\\infty}\\frac{\\ln x}{1+x^2}\\,dx',
+    question: 'Evaluate the improper integral $\\int_{0}^{\\infty}\\frac{\\ln x}{1+x^2}\\,dx$. Justify the convergence and show the substitution symmetry.',
     icon: <Shapes size={18} />,
   },
 ];
@@ -61,7 +66,7 @@ function WelcomeScreen({ onPromptSelect }: WelcomeScreenProps) {
             <button
               key={prompt.label}
               className={styles.card}
-              onClick={() => onPromptSelect(`${prompt.label}: $${prompt.latex}$`)}
+              onClick={() => onPromptSelect(prompt.question)}
               style={{ animationDelay: `${i * 0.08}s` }}
               type="button"
             >
@@ -70,7 +75,7 @@ function WelcomeScreen({ onPromptSelect }: WelcomeScreenProps) {
                 <span className={styles.cardSubject}>{prompt.subject}</span>
               </div>
               <span className={styles.cardLabel}>{prompt.label}</span>
-              <RenderedLatex latex={prompt.latex} />
+              <RenderedLatex latex={prompt.previewLatex} />
             </button>
           ))}
         </div>

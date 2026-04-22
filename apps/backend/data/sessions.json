@@ -1005,5 +1005,128 @@
         "created_at": "2026-04-18T20:31:13.708104+00:00"
       }
     ]
+  },
+  "06adea3f-9673-455b-bcfd-2dc8086a53c9": {
+    "id": "06adea3f-9673-455b-bcfd-2dc8086a53c9",
+    "title": "Differentiate f(x) = x^(sin x) for x > 0 using logarithmic differen...",
+    "problem": "Differentiate f(x) = x^(sin x) for x > 0 using logarithmic differentiation. Explain each step and simplify the derivative.",
+    "strictness": "strict",
+    "max_hints": 3,
+    "private_solution": "Let \\(f(x)=x^{\\sin x}\\) with \\(x>0\\).\n\n1) **Take natural logs** (allowed since \\(x>0\\) so \\(x^{\\sin x}>0\\)):\n\\[\ny=x^{\\sin x}\\quad \\Rightarrow \\quad \\ln y=\\ln\\left(x^{\\sin x}\\right)=\\sin x\\cdot \\ln x.\n\\]\n\n2) **Differentiate both sides** with respect to \\(x\\):\n\\[\n\\frac{d}{dx}(\\ln y)=\\frac{d}{dx}\\big(\\sin x\\cdot \\ln x\\big).\n\\]\nLeft side (chain rule):\n\\[\n\\frac{d}{dx}(\\ln y)=\\frac{1}{y}y'.\n\\]\nRight side (product rule):\n\\[\n\\frac{d}{dx}(\\sin x\\cdot \\ln x)= (\\cos x)(\\ln x)+(\\sin x)\\left(\\frac{1}{x}\\right).\n\\]\n\nSo,\n\\[\n\\frac{y'}{y}=\\cos x\\,\\ln x+\\frac{\\sin x}{x}.\n\\]\n\n3) **Solve for \\(y'\\)** by multiplying by \\(y=x^{\\sin x}\\):\n\\[\ny'=x^{\\sin x}\\left(\\cos x\\,\\ln x+\\frac{\\sin x}{x}\\right).\n\\]\n\n\\[\n\\boxed{\\,f'(x)=x^{\\sin x}\\left(\\cos x\\,\\ln x+\\frac{\\sin x}{x}\\right)\\,}\n\\]",
+    "final_answer": "\\,f'(x)=x^{\\sin x}\\left(\\cos x\\,\\ln x+\\frac{\\sin x}{x}\\right)\\,",
+    "hints": [
+      "Let $y=x^{\\sin x}$ and take natural logs of both sides to obtain $ \\ln y=\\sin x\\cdot\\ln x$.",
+      "Differentiate both sides with respect to $x$: use the chain rule on the left, $\\frac{d}{dx}\\ln y=\\frac{y'}{y}$, and the product rule on the right to differentiate $\\sin x\\cdot\\ln x$.",
+      "Multiply the resulting equation by $y$ and then substitute $y=x^{\\sin x}$ to write $y'$ solely in terms of $x$."
+    ],
+    "revealed_count": 3,
+    "status": "active",
+    "created_at": "2026-04-22T18:34:35.944762+00:00",
+    "messages": [
+      {
+        "id": "f6ef5eb0-0b22-4d12-b221-f73d82c2c59b",
+        "role": "student",
+        "content": "Differentiate f(x) = x^(sin x) for x > 0 using logarithmic differentiation. Explain each step and simplify the derivative.",
+        "created_at": "2026-04-22T18:34:35.944777+00:00"
+      },
+      {
+        "id": "c33435c7-5fd2-4f85-9620-1d3b246330d5",
+        "role": "tutor",
+        "content": "Hint 1 of 3\n\nLet $y=x^{\\sin x}$ and take natural logs of both sides to obtain $ \\ln y=\\sin x\\cdot\\ln x$.",
+        "created_at": "2026-04-22T18:34:35.944783+00:00"
+      },
+      {
+        "id": "046a7cd1-57fb-499b-a77c-49b608210551",
+        "role": "tutor",
+        "content": "Hint 2 of 3\n\nDifferentiate both sides with respect to $x$: use the chain rule on the left, $\\frac{d}{dx}\\ln y=\\frac{y'}{y}$, and the product rule on the right to differentiate $\\sin x\\cdot\\ln x$.",
+        "created_at": "2026-04-22T18:34:45.568819+00:00"
+      },
+      {
+        "id": "9a90c347-05fb-4367-a9d8-5f85ed2acec5",
+        "role": "tutor",
+        "content": "Hint 3 of 3\n\nMultiply the resulting equation by $y$ and then substitute $y=x^{\\sin x}$ to write $y'$ solely in terms of $x$.",
+        "created_at": "2026-04-22T18:34:52.945432+00:00"
+      }
+    ]
+  },
+  "b73e847c-4694-45cd-8cc5-9a058445c500": {
+    "id": "b73e847c-4694-45cd-8cc5-9a058445c500",
+    "title": "Find the interval of convergence for the power series sum from n=1 ...",
+    "problem": "Find the interval of convergence for the power series sum from n=1 to infinity of n(x-2)^n divided by 3^n sqrt(n+1). Check both endpoints carefully.",
+    "strictness": "strict",
+    "max_hints": 3,
+    "private_solution": "Consider  \n\\[\n\\sum_{n=1}^\\infty \\frac{n(x-2)^n}{3^n\\sqrt{n+1}}.\n\\]\nUsing the root test,\n\\[\n\\sqrt[n]{\\left|\\frac{n(x-2)^n}{3^n\\sqrt{n+1}}\\right|}\n=\\frac{|x-2|}{3}\\,\\sqrt[n]{\\frac{n}{\\sqrt{n+1}}}\n\\longrightarrow \\frac{|x-2|}{3},\n\\]\nsince \\(\\sqrt[n]{\\frac{n}{\\sqrt{n+1}}}\\to 1\\). Hence the radius of convergence is \\(R=3\\), so we get convergence for\n\\[\n|x-2|<3 \\quad\\Longleftrightarrow\\quad -1<x<5.\n\\]\n\nNow check endpoints:\n\n- At \\(x=5\\): the series becomes\n\\[\n\\sum_{n=1}^\\infty \\frac{n\\cdot 3^n}{3^n\\sqrt{n+1}}=\\sum_{n=1}^\\infty \\frac{n}{\\sqrt{n+1}},\n\\]\nand \\(\\frac{n}{\\sqrt{n+1}}\\sim \\sqrt{n}\\not\\to 0\\), so it diverges.\n\n- At \\(x=-1\\): the series becomes\n\\[\n\\sum_{n=1}^\\infty \\frac{n(-3)^n}{3^n\\sqrt{n+1}}\n=\\sum_{n=1}^\\infty (-1)^n\\frac{n}{\\sqrt{n+1}},\n\\]\nand again \\(\\frac{n}{\\sqrt{n+1}}\\sim \\sqrt{n}\\not\\to 0\\), so it diverges.\n\nTherefore the interval of convergence is  \n\\[\n\\boxed{(-1,\\,5)}.\n\\]",
+    "final_answer": "(-1,\\,5)",
+    "hints": [
+      "Apply the root test: compute \\(\\lim_{n\\to\\infty}\\sqrt[n]{\\left|\\frac{n(x-2)^n}{3^n\\sqrt{n+1}}\\right|}\\) and use that \\(\\sqrt[n]{\\frac{n}{\\sqrt{n+1}}}\\to1\\) to find the radius of convergence.",
+      "Translate the radius into an interval by solving \\(|x-2|<3\\) and write down the resulting open interval; note that the two endpoints must be checked separately.",
+      "Plug in \\(x=5\\) and \\(x=-1\\) into the general term to get the sequences of terms (one nonalternating, one alternating) and use the nth-term test (and if needed the alternating series test) to determine whether the series converges at each endpoint."
+    ],
+    "revealed_count": 3,
+    "status": "active",
+    "created_at": "2026-04-22T18:36:41.374559+00:00",
+    "messages": [
+      {
+        "id": "a9ae76e0-793c-4a05-b86e-ccff0a4e37ea",
+        "role": "student",
+        "content": "Find the interval of convergence for the power series sum from n=1 to infinity of n(x-2)^n divided by 3^n sqrt(n+1). Check both endpoints carefully.",
+        "created_at": "2026-04-22T18:36:41.374578+00:00"
+      },
+      {
+        "id": "2ccca73b-7c18-4603-8729-2c01e86cbe1b",
+        "role": "tutor",
+        "content": "Hint 1 of 3\n\nApply the root test: compute \\(\\lim_{n\\to\\infty}\\sqrt[n]{\\left|\\frac{n(x-2)^n}{3^n\\sqrt{n+1}}\\right|}\\) and use that \\(\\sqrt[n]{\\frac{n}{\\sqrt{n+1}}}\\to1\\) to find the radius of convergence.",
+        "created_at": "2026-04-22T18:36:41.374586+00:00"
+      },
+      {
+        "id": "89f17687-cb4d-4a60-ae9f-ae4566813990",
+        "role": "tutor",
+        "content": "Hint 2 of 3\n\nTranslate the radius into an interval by solving \\(|x-2|<3\\) and write down the resulting open interval; note that the two endpoints must be checked separately.",
+        "created_at": "2026-04-22T18:37:28.446102+00:00"
+      },
+      {
+        "id": "e21e4194-a762-4665-ac3e-c38a3484438a",
+        "role": "tutor",
+        "content": "Hint 3 of 3\n\nPlug in \\(x=5\\) and \\(x=-1\\) into the general term to get the sequences of terms (one nonalternating, one alternating) and use the nth-term test (and if needed the alternating series test) to determine whether the series converges at each endpoint.",
+        "created_at": "2026-04-22T18:37:29.631052+00:00"
+      }
+    ]
+  },
+  "6c006564-a86a-4cb3-86a8-2cda2053390d": {
+    "id": "6c006564-a86a-4cb3-86a8-2cda2053390d",
+    "title": "Differentiate $f(x)=x^{\\sin x}$ for $x>0$ using logarithmic differe...",
+    "problem": "Differentiate $f(x)=x^{\\sin x}$ for $x>0$ using logarithmic differentiation. Explain each step and simplify the derivative.",
+    "strictness": "strict",
+    "max_hints": 3,
+    "private_solution": "Let \\(f(x)=x^{\\sin x}\\) with \\(x>0\\).\n\n1. **Take logs** (allowed since \\(x>0\\) so \\(f(x)>0\\)):\n\\[\ny=x^{\\sin x}\\quad \\Rightarrow\\quad \\ln y=\\ln\\left(x^{\\sin x}\\right)=\\sin x\\cdot \\ln x.\n\\]\n\n2. **Differentiate both sides** with respect to \\(x\\):\n\\[\n\\frac{1}{y}\\,y'=\\frac{d}{dx}\\big(\\sin x\\cdot \\ln x\\big).\n\\]\n\n3. **Use the product rule** on the right:\n\\[\n\\frac{1}{y}\\,y'=\\cos x\\cdot \\ln x+\\sin x\\cdot \\frac{1}{x}.\n\\]\n\n4. **Solve for \\(y'\\)** by multiplying both sides by \\(y=x^{\\sin x}\\):\n\\[\ny'=x^{\\sin x}\\left(\\cos x\\ln x+\\frac{\\sin x}{x}\\right).\n\\]\n\nTherefore,\n\\[\n\\boxed{\\,f'(x)=x^{\\sin x}\\left(\\cos x\\,\\ln x+\\frac{\\sin x}{x}\\right),\\quad x>0.\\,}\n\\]",
+    "final_answer": "\\,f'(x)=x^{\\sin x}\\left(\\cos x\\,\\ln x+\\frac{\\sin x}{x}\\right),\\quad x>0.\\,",
+    "hints": [
+      "Let $y=x^{\\sin x}$ and take natural logs to get $\\ln y=\\sin x\\cdot\\ln x$.",
+      "Differentiate both sides with respect to $x$, using implicit differentiation on the left to get $\\dfrac{1}{y}y'$ and the product rule on the right.",
+      "Multiply the resulting equation by $y$ to solve for $y'$, then substitute $y=x^{\\sin x}$ to express the derivative in terms of $x$."
+    ],
+    "revealed_count": 2,
+    "status": "active",
+    "created_at": "2026-04-22T18:43:31.636368+00:00",
+    "messages": [
+      {
+        "id": "3e9b09d0-dc6a-49b1-88f1-0da86ee2600f",
+        "role": "student",
+        "content": "Differentiate $f(x)=x^{\\sin x}$ for $x>0$ using logarithmic differentiation. Explain each step and simplify the derivative.",
+        "created_at": "2026-04-22T18:43:31.636394+00:00"
+      },
+      {
+        "id": "eaed1d90-42c8-4e65-9607-4eef3310c3e1",
+        "role": "tutor",
+        "content": "Hint 1 of 3\n\nLet $y=x^{\\sin x}$ and take natural logs to get $\\ln y=\\sin x\\cdot\\ln x$.",
+        "created_at": "2026-04-22T18:43:31.636404+00:00"
+      },
+      {
+        "id": "06c77ed6-e4ab-4ede-8d61-9692ee3897db",
+        "role": "tutor",
+        "content": "Hint 2 of 3\n\nDifferentiate both sides with respect to $x$, using implicit differentiation on the left to get $\\dfrac{1}{y}y'$ and the product rule on the right.",
+        "created_at": "2026-04-22T18:43:39.597679+00:00"
+      }
+    ]
   }
 }
